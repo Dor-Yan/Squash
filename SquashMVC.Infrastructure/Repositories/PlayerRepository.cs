@@ -1,4 +1,5 @@
-﻿using SquashMVC.Domain.Model;
+﻿using SquashMVC.Application.Interfaces;
+using SquashMVC.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SquashMVC.Infrastructure.Repositories
 {
-    class PlayerRepository
+    class PlayerRepository : IPlayerRepository
     {
         private readonly Context _context;
 
