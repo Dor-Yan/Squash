@@ -22,10 +22,10 @@ namespace SquashMVC.Domain.Model
         public int AssociationId { get; set; }
         public virtual Association Associations { get; set; }
 
-        public int CountryId { get; set; }
+        public int CountryId { get; set; } 
         public virtual Country Countries { get; set; }
 
-        public int SponsordId { get; set; }
+        public int SponsorId { get; set; }
         public virtual ICollection<Sponsors> Sponsors { get; set; }
     }
 }
