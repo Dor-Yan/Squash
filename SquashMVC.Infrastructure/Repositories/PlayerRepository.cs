@@ -8,13 +8,18 @@ using System.Threading.Tasks;
 
 namespace SquashMVC.Infrastructure.Repositories
 {
-    class PlayerRepository : IPlayerRepository
+    public class PlayerRepository : IPlayerRepository
     {
         private readonly Context _context;
 
         public PlayerRepository(Context context)
         {
             _context = context;
+        }
+
+        public IQueryable<Player> GetAllActivePlayers()
+        {
+            return _context.Players.Where(p => p.IsActive);
         }
 
         public void DeletePlayer(int playerId)
@@ -52,10 +57,15 @@ namespace SquashMVC.Infrastructure.Repositories
             return players;
         }
 
-        public Player GetPlayerById(int playerID)
+        public Player GetPlayerById(int playerId)
         {
-            var player = _context.Players.FirstOrDefault(i => i.Id == playerID);
+            var player = _context.Players.FirstOrDefault(i => i.Id == playerId);
             return player;
+        } 
+
+        public Player GetPlayer(int playerId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

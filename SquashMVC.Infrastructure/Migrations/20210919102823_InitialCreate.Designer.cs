@@ -10,7 +10,7 @@ using SquashMVC.Infrastructure;
 namespace SquashMVC.Infrastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210801153728_InitialCreate")]
+    [Migration("20210919102823_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -264,6 +264,9 @@ namespace SquashMVC.Infrastructure.Migrations
                     b.Property<int>("CountryId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -271,9 +274,6 @@ namespace SquashMVC.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("SexId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SponsorId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -398,13 +398,13 @@ namespace SquashMVC.Infrastructure.Migrations
 
             modelBuilder.Entity("SquashMVC.Domain.Model.Player", b =>
                 {
-                    b.HasOne("SquashMVC.Domain.Model.Association", "Associations")
+                    b.HasOne("SquashMVC.Domain.Model.Association", "Association")
                         .WithMany("Players")
                         .HasForeignKey("AssociationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SquashMVC.Domain.Model.Country", "Countries")
+                    b.HasOne("SquashMVC.Domain.Model.Country", "Country")
                         .WithMany("Players")
                         .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -416,9 +416,9 @@ namespace SquashMVC.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Associations");
+                    b.Navigation("Association");
 
-                    b.Navigation("Countries");
+                    b.Navigation("Country");
 
                     b.Navigation("Sex");
                 });

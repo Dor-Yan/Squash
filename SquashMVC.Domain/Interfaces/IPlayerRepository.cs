@@ -9,7 +9,9 @@ namespace SquashMVC.Application.Interfaces
 {
     public interface IPlayerRepository
     {
-        
+        IQueryable<Player> GetAllActivePlayers();
+
+        Player GetPlayer(int playerId);
         void DeletePlayer(int playerId);
 
 
