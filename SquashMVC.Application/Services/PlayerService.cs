@@ -41,14 +41,14 @@ namespace SquashMVC.Application.Services
             return playerList;
         }
 
-        public PlayerDetailsVM GetPlayerDetails(int playerId)
+        public PlayerDetailsVM GetPlayerDetails(int id)
         {
-            var player = _playerRepo.GetPlayer(playerId);
+            var player = _playerRepo.GetPlayer(id);
             var playerVm = _mapper.Map<PlayerDetailsVM>(player);
             
             playerVm.Sponsors = new List<SponsorsForListVM>();
 
-            foreach (var sponsors in player.Sponsors)
+            foreach (var sponsors in    player.Sponsors)
             {
                 var spons = new SponsorsForListVM()
                 {

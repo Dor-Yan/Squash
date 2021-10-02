@@ -65,7 +65,8 @@ namespace SquashMVC.Infrastructure.Repositories
 
         public Player GetPlayer(int playerId)
         {
-            throw new NotImplementedException();
+            var player = _context.Players.FirstOrDefault(i => i.Id == playerId);
+            return player;
         }
     }
 }

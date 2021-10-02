@@ -27,6 +27,6 @@ namespace SquashMVC.Application.Interfaces
         IQueryable<Player> GetPlayersByCountryId(int countryId);
 
 
-        Player GetPlayerById(int playerID);
+        Player GetPlayerById(int playerId);
     }
 }

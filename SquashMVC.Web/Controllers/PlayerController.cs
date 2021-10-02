@@ -43,9 +43,9 @@ namespace SquashMVC.Web.Controllers
         //    return View();
         //}
 
-        public IActionResult ViewPlayer (int playerId)
+        public IActionResult Details(int id)
         {
-            var playerModel = _playService.GetPlayerDetails(playerId);
+            var playerModel = _playService.GetPlayerDetails(id);
             return View(playerModel);
         }
     }

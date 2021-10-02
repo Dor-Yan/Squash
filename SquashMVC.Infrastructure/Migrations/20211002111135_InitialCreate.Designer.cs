@@ -10,7 +10,7 @@ using SquashMVC.Infrastructure;
 namespace SquashMVC.Infrastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210919102823_InitialCreate")]
+    [Migration("20211002111135_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
