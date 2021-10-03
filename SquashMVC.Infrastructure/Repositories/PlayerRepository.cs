@@ -1,4 +1,5 @@
-﻿using SquashMVC.Application.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using SquashMVC.Application.Interfaces;
 using SquashMVC.Domain.Model;
 using System;
 using System.Collections.Generic;
@@ -65,8 +66,10 @@ namespace SquashMVC.Infrastructure.Repositories
 
         public Player GetPlayer(int playerId)
         {
-            var player = _context.Players.FirstOrDefault(i => i.Id == playerId);
+            var player = _context.Players.Include(p => p.Sponsors).FirstOrDefault(i => i.Id == playerId);
             return player;
         }
+
+        
     }
 }

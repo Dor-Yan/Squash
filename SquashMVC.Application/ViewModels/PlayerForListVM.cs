@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿ using AutoMapper;
 using SquashMVC.Application.Mapping;
 using System;
 using System.Collections.Generic;
@@ -16,6 +16,12 @@ namespace SquashMVC.Application.ViewModels
 
         public SquashMVC.Domain.Model.Association Association { get; set; }
 
+        public SquashMVC.Domain.Model.Country Country { get; set; }
+
+     //  public SquashMVC.Domain.Model.Sponsors Sponsors { get; set;}
+
+     // public SquashMVC.Domain.Model.SposnorsType SposnorsType { get; set; }
+
         public int Rank { get; set; }
 
         public void Mapping(Profile profile)
@@ -24,7 +30,8 @@ namespace SquashMVC.Application.ViewModels
                 //.ForMember(d => d.Id, opt => opt.MapFrom(s => s.Id))
                 //.ForMember(d => d.Name, opt => opt.MapFrom(s => s.Name))
                 //.ForMember(d => d.Association, opt => opt.MapFrom(s => s.Association))
-                //.ForMember(d => d.Rank, opt => opt.MapFrom(s => s.Rank));
+                //.ForMember(d => d.Rank, opt => opt.MapFrom(s => s.Rank))
+                //.ForMember(d => d.Sponsors, opt => opt.MapFrom(s => s.Sponsors));
         }
     }
 }
